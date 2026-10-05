@@ -1,0 +1,14 @@
+#include "../raylib/raylib.h"
+#include "imatrix.h"
+
+#ifndef CALC_H
+#define CALC_H
+
+Vector3 MVector3(float x, float y, float z);
+Vector2 PosToScreen(Vector3 position, float distance_to_screen, char is_rounded);
+
+Vector3 AddVector3(Vector3 vec1, Vector3 vec2);
+Vector3 SubVector3(Vector3 vec1, Vector3 vec2);
+void Vector3MatrixMult(Vector3 *vec, Vector3 matrix[3]);
+void RotateVector3(Vector3 *vec, Vector3 point, float angle_x, float angle_y, float angle_z);
+float DotProdVector3(Vector3 vec1, Vector3 vec2);

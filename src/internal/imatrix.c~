@@ -1,0 +1,40 @@
+#include "./imath.h"
+#include "../raylib/raylib.h"
+#include <math.h>
+
+void Vector3MatrixMult(Vector3 *vec, Vector3 matrix[3]) {
+    vec->x = DotProdVector3(*vec, matrix[0]);
+    vec->y = DotProdVector3(*vec, matrix[1]);
+    vec->z = DotProdVector3(*vec, matrix[2]);
+}
+
+
+void RotateVector3(Vector3 *vec, Vector3 point, float angle_x, float angle_y, float angle_z) {
+
+    *vec = SubVector3(*vec, point);
+    
+    Vector3 matrix_x[] = {
+        MVector3(1,             0,            0),
+        MVector3(0,  cos(angle_x), sin(angle_x)),
+        MVector3(0, -sin(angle_x), cos(angle_x)),
+    };
+    
+    Vector3 matrix_y[] = {
+        MVector3(cos(angle_y), 0, -sin(angle_y)),
+        MVector3(0,            1,             0),
+        MVector3(sin(angle_y), 0,  cos(angle_y)),
+    };
+    
+    Vector3 matrix_z[] = {
+        MVector3( cos(angle_z), sin(angle_z), 0),
+        MVector3(-sin(angle_z), cos(angle_z), 0),
+        MVector3(0,          0,               1),
+    };
+    
+
+    Vector3MatrixMult(vec, matrix_x);
+    Vector3MatrixMult(vec, matrix_y);
+    Vector3MatrixMult(vec, matrix_z);
+
+    *vec = AddVector3(*vec, point);
+}
