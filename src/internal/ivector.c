@@ -97,7 +97,7 @@ float DotProdVector2(Vector2 vec1, Vector2 vec2) {
 }
 
 float LengthVector2(Vector2 vec){
-    return DotProdVector2(vec, vec);
+    return sqrtf(DotProdVector2(vec, vec));
 }
 
 Vector2 MVector2(float x, float y) {
@@ -158,7 +158,7 @@ float DotProdVector3(Vector3 vec1, Vector3 vec2) {
 
 
 float LengthVector3(Vector3 vec){
-    return DotProdVector3(vec, vec);
+    return sqrtf(DotProdVector3(vec, vec));
 }
 
 Vector3 MVector3(float x, float y, float z) {
@@ -234,7 +234,7 @@ float DotProdVector4(Vector4 vec1, Vector4 vec2) {
 
 
 float LengthVector4(Vector4 vec){
-    return DotProdVector4(vec, vec);
+    return sqrtf(DotProdVector4(vec, vec));
 }
 
 Vector4 MVector4(float x, float y, float z, float w) {

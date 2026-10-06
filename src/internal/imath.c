@@ -14,3 +14,10 @@ Vector2 PosToScreen(Vector3 position, float distance_to_screen, char is_rounded)
     }
     return screen_position;
 }
+
+float MinF(float a, float b){
+    if (a > b)
+        return b;
+    else
+        return a;
+}

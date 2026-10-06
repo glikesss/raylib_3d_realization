@@ -1,3 +1,6 @@
+#ifndef IMATRIX_H
+#define IMATRIX_H
+
 #include "../raylib/raylib.h"
 
 void RotateVector3(Vector3 *vec, Vector3 point, float angle_x, float angle_y, float angle_z);
@@ -14,3 +17,4 @@ Vector4 Vector4MatrixMult(Vector4 vec, const Vector4 matrix[4]);
             )(vec, matr)
 
 
+#endif
